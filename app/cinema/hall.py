@@ -5,13 +5,15 @@ class CinemaHall:
     def __init__(self: None, number: int) -> None:
         self.number = number
 
-    def movie_session(self: None, movie_name: str,
-                      customers: list, cleaning_staff: str) -> None:
+    def movie_session(self: None,
+                      movie_name: str,
+                      customers: list,
+                      cleaning_staff: Cleaner) -> None:
         print(f'"{movie_name}" started in hall number {self.number}.')
 
         for customer in customers:
             customer.watch_movie(movie=movie_name)
 
         print(f'"{movie_name}" ended.')
-        cleaner = Cleaner(name=cleaning_staff)
-        cleaner.clean_hall(hall_number=self.number)
+
+        cleaning_staff.clean_hall(self.number)
